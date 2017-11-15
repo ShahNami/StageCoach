@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		794C48A31FBBD85500F9B6DA /* dateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794C48A21FBBD85500F9B6DA /* dateForm.swift */; };
 		79C276D21FBB54EC00030EAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C276D11FBB54EC00030EAA /* AppDelegate.swift */; };
 		79C276D41FBB54EC00030EAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C276D31FBB54EC00030EAA /* ViewController.swift */; };
 		79C276D71FBB54EC00030EAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C276D51FBB54EC00030EAA /* Main.storyboard */; };
 		79C276D91FBB54EC00030EAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C276D81FBB54EC00030EAA /* Assets.xcassets */; };
 		79C276DC1FBB54EC00030EAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C276DA1FBB54EC00030EAA /* LaunchScreen.storyboard */; };
+		79C276E41FBB5B0600030EAA /* timeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C276E31FBB5B0600030EAA /* timeCell.swift */; };
+		C1811609E76DB3B38912EBC4 /* Pods_StageCoach.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3819505D47B347F3E7194 /* Pods_StageCoach.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E25E93D8C36A8C45F73E0F3 /* Pods-StageCoach.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StageCoach.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StageCoach/Pods-StageCoach.debug.xcconfig"; sourceTree = "<group>"; };
+		794C48A21FBBD85500F9B6DA /* dateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateForm.swift; sourceTree = "<group>"; };
 		79C276CE1FBB54EC00030EAA /* StageCoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StageCoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C276D11FBB54EC00030EAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C276D31FBB54EC00030EAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		79C276D81FBB54EC00030EAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C276DB1FBB54EC00030EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79C276DD1FBB54EC00030EAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C276E31FBB5B0600030EAA /* timeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeCell.swift; sourceTree = "<group>"; };
+		8EA3819505D47B347F3E7194 /* Pods_StageCoach.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StageCoach.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA700898C01FDFE3F1B076B /* Pods-StageCoach.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StageCoach.release.xcconfig"; path = "Pods/Target Support Files/Pods-StageCoach/Pods-StageCoach.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1811609E76DB3B38912EBC4 /* Pods_StageCoach.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		039B92DA3E37EFE4C2247D24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EA3819505D47B347F3E7194 /* Pods_StageCoach.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79C276C51FBB54EC00030EAA = {
 			isa = PBXGroup;
 			children = (
 				79C276D01FBB54EC00030EAA /* StageCoach */,
 				79C276CF1FBB54EC00030EAA /* Products */,
+				8BC5841FB6A46B01E46C66A4 /* Pods */,
+				039B92DA3E37EFE4C2247D24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +79,19 @@
 				79C276D81FBB54EC00030EAA /* Assets.xcassets */,
 				79C276DA1FBB54EC00030EAA /* LaunchScreen.storyboard */,
 				79C276DD1FBB54EC00030EAA /* Info.plist */,
+				79C276E31FBB5B0600030EAA /* timeCell.swift */,
+				794C48A21FBBD85500F9B6DA /* dateForm.swift */,
 			);
 			path = StageCoach;
+			sourceTree = "<group>";
+		};
+		8BC5841FB6A46B01E46C66A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E25E93D8C36A8C45F73E0F3 /* Pods-StageCoach.debug.xcconfig */,
+				BEA700898C01FDFE3F1B076B /* Pods-StageCoach.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C276E01FBB54EC00030EAA /* Build configuration list for PBXNativeTarget "StageCoach" */;
 			buildPhases = (
+				4B6B772BB19D7F274BBBFDC6 /* [CP] Check Pods Manifest.lock */,
 				79C276CA1FBB54EC00030EAA /* Sources */,
 				79C276CB1FBB54EC00030EAA /* Frameworks */,
 				79C276CC1FBB54EC00030EAA /* Resources */,
+				2188491E2DB940AD3769D1AB /* [CP] Embed Pods Frameworks */,
+				537286E398B0A818B8FB7EDD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +164,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2188491E2DB940AD3769D1AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StageCoach/Pods-StageCoach-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/Spruce/Spruce.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftOverlays/SwiftOverlays.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spruce.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftOverlays.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StageCoach/Pods-StageCoach-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B6B772BB19D7F274BBBFDC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StageCoach-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		537286E398B0A818B8FB7EDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StageCoach/Pods-StageCoach-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		79C276CA1FBB54EC00030EAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -138,6 +235,8 @@
 			files = (
 				79C276D41FBB54EC00030EAA /* ViewController.swift in Sources */,
 				79C276D21FBB54EC00030EAA /* AppDelegate.swift in Sources */,
+				79C276E41FBB5B0600030EAA /* timeCell.swift in Sources */,
+				794C48A31FBBD85500F9B6DA /* dateForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +371,7 @@
 		};
 		79C276E11FBB54EC00030EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E25E93D8C36A8C45F73E0F3 /* Pods-StageCoach.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +387,7 @@
 		};
 		79C276E21FBB54EC00030EAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEA700898C01FDFE3F1B076B /* Pods-StageCoach.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

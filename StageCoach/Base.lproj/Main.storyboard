@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,89 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StageCoach" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="U9r-WZ-yAg">
+                                <rect key="frame" x="16" y="36" width="343" height="29"/>
+                                <segments>
+                                    <segment title="University of Warwick"/>
+                                    <segment title="Leamington Spa"/>
+                                </segments>
+                                <color key="tintColor" red="0.2156862745" green="0.4431372549" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bce-UC-kOY">
+                                <rect key="frame" x="16" y="72" width="343" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="pGt-kS-vLP"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="532371251.58050603">
+                                    <!--2017-11-14 16:54:11 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-y2-FB8">
+                                <rect key="frame" x="16" y="180" width="343" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.21568627450980393" green="0.44313725490196076" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bAs-7j-6mB"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idTable" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P5V-1T-enC">
+                                <rect key="frame" x="16" y="226" width="343" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DUB-Zd-r3Y" customClass="timeCell" customModule="StageCoach" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DUB-Zd-r3Y" id="fVU-h3-Z6b">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5M1-Dr-VkE">
+                                <rect key="frame" x="0.0" y="223" width="375" height="2"/>
+                                <color key="backgroundColor" red="0.74901960784313726" green="0.0" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="KkV-yH-bdi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5M1-Dr-VkE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6ku-8U-qgN"/>
+                            <constraint firstItem="P5V-1T-enC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="85b-81-LgG"/>
+                            <constraint firstItem="P5V-1T-enC" firstAttribute="top" secondItem="5M1-Dr-VkE" secondAttribute="bottom" constant="1" id="8IN-0n-KWO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P5V-1T-enC" secondAttribute="trailing" constant="16" id="8Yr-Iv-fM4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5M1-Dr-VkE" secondAttribute="trailing" id="APZ-E0-JmG"/>
+                            <constraint firstItem="P5V-1T-enC" firstAttribute="top" secondItem="mI9-y2-FB8" secondAttribute="bottom" constant="16" id="Gy4-qw-LmK"/>
+                            <constraint firstItem="bce-UC-kOY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HQL-0Z-MFo"/>
+                            <constraint firstItem="bce-UC-kOY" firstAttribute="top" secondItem="U9r-WZ-yAg" secondAttribute="bottom" constant="8" id="IdH-vv-1IE"/>
+                            <constraint firstItem="U9r-WZ-yAg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="KA5-b3-rvU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="P5V-1T-enC" secondAttribute="bottom" constant="16" id="LwD-8q-OnM"/>
+                            <constraint firstItem="mI9-y2-FB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PY3-Qk-JTq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bce-UC-kOY" secondAttribute="trailing" constant="16" id="Yia-9E-myI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mI9-y2-FB8" secondAttribute="trailing" constant="16" id="fpe-RN-KZK"/>
+                            <constraint firstItem="mI9-y2-FB8" firstAttribute="top" secondItem="bce-UC-kOY" secondAttribute="bottom" constant="8" id="hpF-1C-pby"/>
+                            <constraint firstItem="U9r-WZ-yAg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="usq-ua-Tl9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U9r-WZ-yAg" secondAttribute="trailing" constant="16" id="vp1-6e-LaV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="bce-UC-kOY" id="mlD-1H-QT3"/>
+                        <outlet property="destinationOutlet" destination="U9r-WZ-yAg" id="6oK-R2-EPG"/>
+                        <outlet property="tableView" destination="P5V-1T-enC" id="hB9-FL-L5d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
