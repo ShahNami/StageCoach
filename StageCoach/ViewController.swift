@@ -21,7 +21,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var formView: FormViewController!
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func searchButton(_ sender: Any) {
@@ -228,7 +227,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+        return 70.0
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {

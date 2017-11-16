@@ -12,5 +12,6 @@ target 'StageCoach' do
   pod 'FCAlertView'
   pod 'Spruce', '~> 1.0.0'
   pod 'Eureka'
-
+  pod 'FaveButton', '~> 2.0.3'
+  pod 'FontAwesome.swift'
 end

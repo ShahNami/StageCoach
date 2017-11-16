@@ -22,10 +22,10 @@ class timeCell: UITableViewCell {
     
     var departLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         let attributedText = NSMutableAttributedString(string: "10:30", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)])
         
-        attributedText.append(NSAttributedString(string: "\nLeamington Spa, Regent Street", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
+        attributedText.append(NSAttributedString(string: "\nLeamington Spa, Regent Street\nKirby Corner, Interchange (Stop UW3)", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
@@ -38,10 +38,10 @@ class timeCell: UITableViewCell {
     
     var arriveLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         let attributedText = NSMutableAttributedString(string: "11:00", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)])
         
-        attributedText.append(NSAttributedString(string: "\nKirby Corner, Interchange (Stop UW3)", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
+        attributedText.append(NSAttributedString(string: "\nU1", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
@@ -56,8 +56,7 @@ class timeCell: UITableViewCell {
         var label = UILabel()
         label.numberOfLines = 2
         var attributedText = NSMutableAttributedString(string: "\(departTime)", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)])
-        
-        attributedText.append(NSAttributedString(string: "\n\(departStop.truncate(length: 40))", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
+        attributedText.append(NSAttributedString(string: "\n\(departStop.truncate(length: 34))\n\(arriveStop.truncate(length: 34))", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11)]))
         
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
@@ -69,10 +68,10 @@ class timeCell: UITableViewCell {
         departLabel.textAlignment = .left
         
         label = UILabel()
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         attributedText = NSMutableAttributedString(string: "\(arriveTime)", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)])
         
-        attributedText.append(NSAttributedString(string: "\n\(service)", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 161/255, blue: 171/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]))
+        attributedText.append(NSAttributedString(string: "\n\(service)\n", attributes: [NSAttributedStringKey.foregroundColor: UIColor(red: 231/255, green: 189/255, blue: 81/255, alpha: 1), NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]))
         
         paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
@@ -119,8 +118,8 @@ extension String {
      - Returns: A `String` object.
      */
     func truncate(length: Int, trailing: String = "…") -> String {
-        if self.characters.count > length {
-            return String(self.characters.prefix(length)) + trailing
+        if self.count > length {
+            return String(self.prefix(length)) + trailing
         } else {
             return self
         }
