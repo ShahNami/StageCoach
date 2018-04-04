@@ -67,8 +67,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         let lat = locValue.latitude
         let long = locValue.longitude
 
+        let testDate = Date()
+        
+        let tz = NSTimeZone.local
+        if tz.isDaylightSavingTime(for: testDate){
+            isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000+01:00"
+        }
         let date = isoFormatter.string(from: datePicker.date)
-
+        
         //To Warwick University
         var destination = [
             "Destination":[
@@ -159,32 +165,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         Alamofire.request("https://api.stagecoachbus.com/tis/v3/itinerary-query", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON {
             (response) in
             //self.showWaitOverlay()
-            let json = JSON(data: response.data!)
-            self.tableData = [String: Any]()
-            for (key,subJson):(String, JSON) in json["Itineraries"]["Itinerary"] {
-                // Do something you want
-                var departStop = subJson["Legs"]["Leg"][1]["LegBoard"]["Name"]
-                var depart = subJson["Legs"]["Leg"][1]["LegBoard"]["ScheduledDepartureTime"]["value"]
-                var arriveStop = subJson["Legs"]["Leg"][1]["LegAlight"]["Name"]
-                var arrive = subJson["Legs"]["Leg"][1]["LegAlight"]["ScheduledArrivalTime"]["value"]
-                var service = subJson["Legs"]["Leg"][1]["Trip"]["Service"]["ServiceNumber"]
-                if service == JSON.null {
-                    self.showMessage(message: "Please select a destination further away", forTime: 3)
-                    newRequest = false
-                    break;
-                } else {
-                    self.tableData[key] = [service.string!,departStop.string!,depart.string!,arriveStop.string!, arrive.string!]
+            do {
+                let json = try JSON(data: response.data!)
+                self.tableData = [String: Any]()
+                for (key,subJson):(String, JSON) in json["Itineraries"]["Itinerary"] {
+                    // Do something you want
+                    var departStop = subJson["Legs"]["Leg"][1]["LegBoard"]["Name"]
+                    var depart = subJson["Legs"]["Leg"][1]["LegBoard"]["ScheduledDepartureTime"]["value"]
+                    var arriveStop = subJson["Legs"]["Leg"][1]["LegAlight"]["Name"]
+                    var arrive = subJson["Legs"]["Leg"][1]["LegAlight"]["ScheduledArrivalTime"]["value"]
+                    var service = subJson["Legs"]["Leg"][1]["Trip"]["Service"]["ServiceNumber"]
+                    if service == JSON.null {
+                        self.showMessage(message: "Please select a destination further away", forTime: 3)
+                        newRequest = false
+                        break;
+                    } else {
+                        self.tableData[key] = [service.string!,departStop.string!,depart.string!,arriveStop.string!, arrive.string!]
+                    }
                 }
+                let animation = SpringAnimation(duration: 0.7)
+                DispatchQueue.main.async {
+                    self.tableView?.spruce.animate(self.animations, animationType: animation, sortFunction: LinearSortFunction(direction: .topToBottom, interObjectDelay: 0.05))
+                }
+                if(self.tableData.count < 1 && newRequest){
+                    self.showMessage(message: "Oh oh! There are no buses at this time!", forTime: 3)
+                }
+                self.tableView.reloadData()
+                //self.removeAllOverlays()
+            } catch {
+                
             }
-            let animation = SpringAnimation(duration: 0.7)
-            DispatchQueue.main.async {
-                self.tableView?.spruce.animate(self.animations, animationType: animation, sortFunction: LinearSortFunction(direction: .topToBottom, interObjectDelay: 0.05))
-            }
-            if(self.tableData.count < 1 && newRequest){
-                self.showMessage(message: "Oh oh! There are no buses at this time!", forTime: 3)
-            }
-            self.tableView.reloadData()
-            //self.removeAllOverlays()
         }
     }
     

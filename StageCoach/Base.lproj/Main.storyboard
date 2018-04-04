@@ -34,6 +34,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="532371251.58050603">
                                     <!--2017-11-14 16:54:11 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="en_GB"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI9-y2-FB8">
                                 <rect key="frame" x="16" y="180" width="343" height="30"/>
