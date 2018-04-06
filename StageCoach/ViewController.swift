@@ -46,7 +46,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
-        isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000Z'"
+        
+        let timezone = TimeZone.init(identifier: "Europe/London")
+        isoFormatter.timeZone = timezone
+        isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000'"
         isoFormatter.locale = Locale(identifier: "en_US_POSIX")
         self.animations = [.slide(.up, .severely), .fadeIn]
     }
@@ -58,7 +61,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     func POSTrequest(){
@@ -66,12 +69,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         let lat = locValue.latitude
         let long = locValue.longitude
-
-        let testDate = Date()
         
-        let tz = NSTimeZone.local
-        if tz.isDaylightSavingTime(for: testDate){
-            isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000+01:00"
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.init(identifier: "Europe/London")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZZZ"
+        let strTestDate = dateFormatter.string(from: Date())
+        let testDate = dateFormatter.date(from: strTestDate)
+        
+        let tz = TimeZone.init(identifier: "Europe/London")
+        if (tz?.isDaylightSavingTime(for: testDate!))!{
+            isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000'+01:00"
         }
         let date = isoFormatter.string(from: datePicker.date)
         
