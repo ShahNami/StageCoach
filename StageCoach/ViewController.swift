@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     var locationManager: CLLocationManager!
     let isoFormatter = DateFormatter()
     var animations: [StockAnimation] = []
+    var locValue = CLLocationCoordinate2D(latitude: 52.379894, longitude: 1.562943) //52,379894, -1,562943
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,41 +48,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
         
-        let timezone = TimeZone.init(identifier: "Europe/London")
-        isoFormatter.timeZone = timezone
+        isoFormatter.timeZone = TimeZone.init(identifier: "Europe/London")
         isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000'"
         isoFormatter.locale = Locale(identifier: "en_US_POSIX")
         self.animations = [.slide(.up, .severely), .fadeIn]
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.locValue = manager.location!.coordinate
         //print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     func POSTrequest(){
         var newRequest = true
-        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-        let lat = locValue.latitude
-        let long = locValue.longitude
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.init(identifier: "Europe/London")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ZZZZZ"
-        let strTestDate = dateFormatter.string(from: Date())
-        let testDate = dateFormatter.date(from: strTestDate)
+        let lat = self.locValue.latitude
+        let long = self.locValue.longitude
         
         let tz = TimeZone.init(identifier: "Europe/London")
-        if (tz?.isDaylightSavingTime(for: testDate!))!{
+        if (tz!.isDaylightSavingTime()){
             isoFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.'000'+01:00"
         }
         let date = isoFormatter.string(from: datePicker.date)
-        
         //To Warwick University
         var destination = [
             "Destination":[
@@ -206,6 +198,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     }
     
     func showMessage(message: String, forTime: Double){
+        self.removeAllOverlays()
         SwiftOverlays.showTextOverlay(self.view, text: message)
         DispatchQueue.main.asyncAfter(deadline: .now() + forTime, execute: {
             self.removeAllOverlays()
@@ -251,4 +244,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         return tableData.count
     }
 }
-
